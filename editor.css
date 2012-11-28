@@ -52,3 +52,47 @@ body {
 	display: block;
 	z-index: 3;
 }
+
+.menu {
+	z-index: 100;
+	position: absolute;
+	width: 50px;
+	height: auto;
+	background: black;
+	top: 30px;
+	left: 30px;
+	opacity: 0.5;
+	transition: opacity 0.5s ease-in;
+	-moz-transition: opacity 0.5s ease-in;
+	-webkit-transition: opacity 0.5s ease-in;
+	-o-transition: opacity 0.5s ease-in;
+	border: 0;
+}
+.menu:hover {
+	opacity: 1;
+}
+
+
+.menu ul {
+	width: 50px;	
+	padding: 0px;
+	margin: 0px;	
+	border: 0;
+}
+.menu ul li {
+	list-style: none;
+
+	float: left;
+	clear: both;
+	cursor: pointer;
+	border: 1px solid black;
+	height: 50px;
+}
+.menu ul li.active {
+	border: 1px solid #59B200;
+	background: #59B200;
+}
+.menu ul li:hover {
+	border: 1px solid #238C00;
+	background: #238C00;
+}
