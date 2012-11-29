@@ -9,28 +9,48 @@
 	<script type="text/javascript" src="src/panme.js"></script>
 
 	<script type="text/javascript" src="editor.js"></script>
+
+	<script type="text/javascript" src="plugins/base/base.js"></script>
 	<link rel="stylesheet" type="text/css" href="editor.css">
+	<style type="text/css" media="screen">
+	    #editor { 
+	        position: absolute;
+	        top: 100%;	        
+	        margin-top: -200px;
+	        left: 0;
+	        width: 100%;
+	        height: 200px;
+	        z-index: 500;
+	    }
+	</style>
 </head>
 <body>
-<div id="tools-menu" class="menu">
-	<ul>
+<div class="menu">
+	<ul id="tools-menu">
 		<li class="active">
 			<img src="img/Selection Modes.png" />			
 		</li>
-		<li>
-			<img src="img/Text.png" />
-		</li>
-		<li>
-			<img src="img/Square.png" />
-		</li>
-		<li>
-			<img src="img/Picture.png" />			
-		</li>
 
+	</ul>
 </div>
 <div id='container'>
 	<canvas class='ruler' id='ruler'></canvas>
-	<canvas class='grid' id='grid' width=857 height=500></canvas>
+	
+	<div id="canvas">
+		<canvas class='grid' id='grid' width=857 height=500></canvas>
+	</div>
 </div>
+<div id="editor">body {
+	padding: 0;
+	margin: 0
+}</div>
+
+
+<script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/clouds");
+    editor.getSession().setMode("ace/mode/css");
+</script>
 </body>
 </html>

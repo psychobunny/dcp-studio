@@ -30,17 +30,15 @@ body {
 	border: 1px solid #555;
 	background: white;
 	position: absolute;
-	z-index: 1;
-	top: 50px;
-	left: 50px;
+	z-index: -100;
+
 }
 
 #container {
 	position: relative;
 	overflow: hidden;
 	width: 100%;
-
-	height: 100%;	
+	height: 100%;
 }
 
 .selector {
@@ -51,6 +49,7 @@ body {
 	position: absolute;
 	display: block;
 	z-index: 3;
+	pointer-events: none;
 }
 
 .menu {
@@ -95,4 +94,20 @@ body {
 .menu ul li:hover {
 	border: 1px solid #238C00;
 	background: #238C00;
+}
+
+
+#canvas {
+	width: 857px;
+	height: 500px;
+	position: absolute;
+
+
+}
+
+.canvas-element {
+
+}
+.canvas-element:active {
+	opacity: 0.2;
 }
