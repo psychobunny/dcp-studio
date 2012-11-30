@@ -10,7 +10,6 @@ function Draggable(element) {
 	element.addEventListener('mousedown', function(ev) {
 		Selector.pause = true;
 		
-		toolsMenu.parentNode.style.opacity = '0';
 		if (currentElement != null) return;
 
 		currentElement = ev.target.parentNode;
@@ -21,8 +20,6 @@ function Draggable(element) {
 	});
 
 	document.body.addEventListener('mouseup', function(ev) {
-		toolsMenu.parentNode.style.opacity = '0.5';
-
 		if (currentElement) {
 			Selector.pause = false;		
 			currentElement.rawcss = currentElement.rawcss.replace(/left(.*?)px/g, 'left: ' + currentElement.style.left);

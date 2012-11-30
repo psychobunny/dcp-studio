@@ -42,8 +42,8 @@ function Resizable(element) {
 		}
 	}	
 
+	// only need one of these so make sure its only done once.
 	document.body.addEventListener('mouseup', function(ev) {
-		toolsMenu.parentNode.style.opacity = '0.5';
 		if (currentHandle) {
 			currentHandle.owner.rawcss = currentHandle.owner.rawcss.replace(/height(.*?)px/g, 'height: ' + currentHandle.owner.style.height);
 			currentHandle.owner.rawcss = currentHandle.owner.rawcss.replace(/width(.*?)px/g, 'width: ' + currentHandle.owner.style.width);
@@ -54,7 +54,6 @@ function Resizable(element) {
 	});
 
 	function startResize(ev) {
-		toolsMenu.parentNode.style.opacity = '0';
 		currentHandle = ev.target;
 		
 		originHeight = parseInt(currentHandle.owner.style.height);

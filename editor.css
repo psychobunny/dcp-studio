@@ -60,11 +60,11 @@ body {
 	background: black;
 	top: 30px;
 	left: 30px;
-	opacity: 0.5;
-	transition: all 0.5s ease-in-out;
-	-moz-transition: all 0.5s ease-in-out;
-	-webkit-transition: all 0.5s ease-in-out;
-	-o-transition: all 0.5s ease-in-out;
+	opacity: 0.3;
+	transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-webkit-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
 	border: 0;
 }
 
@@ -106,8 +106,11 @@ body {
 
 }
 
-.canvas-element {
-
+.canvas-element {	
+	transition: opacity 0.1s ease-out;
+	-moz-transition: opacity 0.1s ease-out;
+	-webkit-transition: opacity 0.1s ease-out;
+	-o-transition: opacity 0.1s ease-out;
 }
 .canvas-element:active {
 	opacity: 0.2;
@@ -118,6 +121,10 @@ body {
 	position: absolute;
 	opacity: 0;
 	padding: 5px;
+	transition: opacity 0.3s ease-out;
+	-moz-transition: opacity 0.3s ease-out;
+	-webkit-transition: opacity 0.3s ease-out;
+	-o-transition: opacity 0.3s ease-out;
 }
 
 .resize-box:hover {
