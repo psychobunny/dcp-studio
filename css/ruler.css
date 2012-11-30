@@ -1,0 +1,11 @@
+.ruler {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 2;
+	pointer-events: none;
+}
+
+#ruler {
+	pointer-events: none;
+}

@@ -4,9 +4,10 @@ function Resizable(element) {
 	var originX, originY, originWidth, originHeight;
 
 	var ref = function(ev) {
-		var element = currentHandle.owner;		
+		var element = currentHandle.owner;
 		var currentWidth = parseInt(element.style.width);
 
+		// these four cases handle the 8 possible resize directions
 		if (currentHandle.handle.indexOf("r") !== -1) {
 			element.style.width = ev.clientX - originX + 'px';
 			if ((ev.clientX) < parseInt(element.style.left)) {

@@ -1,0 +1,11 @@
+
+.selector {
+	border: 1px solid #111;
+	background: #1B3F73;
+	opacity: 0.5;
+	
+	position: absolute;
+	display: block;
+	z-index: 3;
+	pointer-events: none;
+}
