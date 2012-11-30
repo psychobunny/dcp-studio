@@ -42,9 +42,9 @@ function init() {
 
 
 var DCP = {};
-
+var toolsMenu;
 (function() {
-	var toolsMenu;
+	
 	var controls = {};
 	DCP.registerControl = function(name, description, icon, src, addMethod) {
 		controls[name] = {description: description, icon: icon, src: src, addMethod: addMethod};		
