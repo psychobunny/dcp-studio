@@ -14,7 +14,8 @@ Shape.add = function() {
 	shape.setAttribute('id', id);
 	document.getElementById('canvas').appendChild(shape);
 	shape.rawcss = "#" + id + "{width: 100px;height: 100px;border: 1px solid black;background: white;position: absolute;top: 50px;left: 50px;}";
-	shape.onclick = function(ev) {		
+	shape.onclick = function(ev) {
+		//removeClass(element, 'transition');	
 		DCP.updateEditor(shape.rawcss, this);		
 		if (activeFrame) {
 			//shape.frames[activeFrame].css = shape.rawcss;
@@ -25,6 +26,7 @@ Shape.add = function() {
 		return false;
 	}
 	shape.addEventListener('mousedown', function(ev) {
+		removeClass(this, 'transition');	
 		activateElements([this], (!ev.shiftKey && activeElements.length <= 1));
 		animations.showCanvas(this);
 

@@ -63,10 +63,7 @@ var activeFrame;
 		else el.appendChild(document.createTextNode(frame.css));
 		pa.appendChild(el);
 
-		frame.element.css = el;
-		
-		removeClass(element, 'transition');	
-		
+		frame.element.css = el;	
 	}
 
 	function buildFrame(element, frameCount) {		
