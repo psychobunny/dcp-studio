@@ -78,3 +78,10 @@ function removeClass(element, classToRemove) {
 function hasClass(element, classToFind) {	
 	return (element.className.indexOf(classToFind) !== -1);
 }
+
+function removeClassFromElements(elements, classToRemove) {
+	var len = elements.length;
+	while (len--) {
+		removeClass(elements[len], classToRemove);
+	}
+}

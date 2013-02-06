@@ -17,7 +17,7 @@ function init() {
 
 	window.onresize = function() {
 		canvas.width = window.innerWidth;
-		canvas.height = window.innerHeight;		
+		canvas.height = window.innerHeight;
 		ruler.render('#aaa', 'pixels', 100);
 	}
 
@@ -31,18 +31,19 @@ function init() {
 	container = document.getElementById('container');
 	canvas = document.getElementById('canvas');
 
-	container.addEventListener('click', function() {
-		
-	});	
-	container.onclick = function() {
-		DCP.updateEditor("body {padding: 0;margin: 0}");
-		inactivateElements();
+	container.onmousedown = function() {
+		if (!Selector.isActive()) {
+			DCP.updateEditor("body {padding: 0;margin: 0}");
+			animations.hideCanvas();
+			//deactivateElements();
+		}		
 	}
 
+	animations.init();
 }
 
 function activateElements(elements, reset) {
-	if (reset === true) inactivateElements();
+	if (reset === true) deactivateElements();
 
 	while (element = elements.pop()) {
 		if (!hasClass(element, 'active')) {
@@ -52,7 +53,7 @@ function activateElements(elements, reset) {
 	}
 }
 
-function inactivateElements() {
+function deactivateElements() {
 	while (element = activeElements.pop()) {
 		removeClass(element, 'active');
 	}
