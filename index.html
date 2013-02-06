@@ -10,12 +10,10 @@
 	<script type="text/javascript" src="src/panme.js"></script>
 	<script type="text/javascript" src="src/draggable.js"></script>
 	<script type="text/javascript" src="src/resizable.js"></script>	
-	<script type="text/javascript" src="src/animations.js"></script>
 
 	<script type="text/javascript" src="editor.js"></script>
 
-	<script type="text/javascript" src="plugins/base/base.js"></script>	
-
+	<script type="text/javascript" src="plugins/base/base.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/editor.css">
 	<link rel="stylesheet" type="text/css" href="css/grid.css">
 	<link rel="stylesheet" type="text/css" href="css/resizable.css">
@@ -23,39 +21,32 @@
 	<link rel="stylesheet" type="text/css" href="css/selector.css">
 </head>
 <body>
-	<div class="menu">
-		<ul id="tools-menu">
-			<li class="active">
-				<img src="img/Selection Modes.png" />		
-			</li>
+<div class="menu">
+	<ul id="tools-menu">
+		<li class="active">
+			<img src="img/Selection Modes.png" />		
+		</li>
 
-		</ul>
+	</ul>
+</div>
+<div id='container'>
+	<canvas class='ruler' id='ruler'></canvas>
+	
+	<div id="canvas">
+		<canvas class='grid' id='grid' width=857 height=500></canvas>
 	</div>
-
-	<div id="anicanvas">
-	</div>
-
-
-
-	<div id='container'>
-		<canvas class='ruler' id='ruler'></canvas>
-		
-		<div id="canvas">
-			<canvas class='grid' id='grid' width=857 height=500></canvas>
-		</div>
-	</div>
-
+</div>
 <div id="editor">body {
 	padding: 0;
 	margin: 0
 }</div>
 
-		
-	<script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-	<script>
-	    var editor = ace.edit("editor");
-	    editor.setTheme("ace/theme/clouds");
-	    editor.getSession().setMode("ace/mode/css");
-	</script>
+
+<script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/clouds");
+    editor.getSession().setMode("ace/mode/css");
+</script>
 </body>
 </html>
