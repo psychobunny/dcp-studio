@@ -53,7 +53,45 @@ var Selector;
 			this.mousedown = ev.button + 1;
 		}.bind(this));
 
-		this.canvas.addEventListener("mouseup", function(ev) {
+		this.canvas.addEventListener("mouseup", function(ev) {			 	
+			var elements = document.getElementsByClassName('canvas-element'), el,
+				mouseX = ev.clientX,
+				mouseY = ev.clientY,
+				elementLeft, elementRight, elementTop, elementBottom,
+				originX, originY, endX, endY;
+
+			if (this.originX != false && this.originY != false) {
+				if (this.originX < mouseX) {
+					originX = this.originX;
+					endX = mouseX;
+				} else {
+					originX = mouseX;
+					endX = this.originX;
+				}
+				
+				if (this.originY < mouseY) {
+					originY = this.originY;
+					endY = mouseY;
+				} else {
+					originY = mouseY;
+					endY = this.originY;
+				}
+				
+				for (el in elements) {
+					if (elements.hasOwnProperty(el)) {
+						elementLeft = parseInt(elements[el].style.left) + parseInt(elements[el].parentNode.style.left);
+						elementRight = elementLeft + parseInt(elements[el].style.width);
+						elementTop = parseInt(elements[el].style.top) + parseInt(elements[el].parentNode.style.top);
+						elementBottom = elementTop + parseInt(elements[el].style.height);
+						if ((originX < elementLeft && endX > elementRight) && (originY < elementTop && endY > elementBottom)) {
+							activateElements([elements[el]], false);
+							console.log(1);
+						}
+					}				
+				}
+			}
+			
+			
 			this.originX = false;
 			this.originY = false;
 
@@ -63,6 +101,7 @@ var Selector;
 			selector_obj.style.height = '0px';
 
 			this.mousedown = 0;
+
 		}.bind(this));
 
 	};

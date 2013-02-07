@@ -34,10 +34,12 @@ function init() {
 	container.addEventListener('click', function() {
 		
 	});	
-	container.onclick = function() {
+	container.addEventListener('mouseup', function() {
 		DCP.updateEditor("body {padding: 0;margin: 0}");
+	});
+	container.addEventListener('dblclick', function() {
 		inactivateElements();
-	}
+	});
 
 }
 

@@ -19,6 +19,12 @@
 	<link rel="stylesheet" type="text/css" href="css/resizable.css">
 	<link rel="stylesheet" type="text/css" href="css/ruler.css">
 	<link rel="stylesheet" type="text/css" href="css/selector.css">
+	<style type="text/css">
+	#editor {
+		opacity: 0.9;
+		background: white;
+	}
+	</style>
 </head>
 <body>
 <div class="menu">
@@ -42,7 +48,7 @@
 }</div>
 
 
-<script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="src/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/clouds");

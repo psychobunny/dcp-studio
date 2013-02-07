@@ -21,6 +21,8 @@ Shape.add = function() {
 	}
 	shape.addEventListener('mousedown', function(ev) {
 		activateElements([this], (!ev.shiftKey && activeElements.length <= 1));
+		ev.stopPropagation();
+		console.log('first');
 	});
 
 	shape.className = 'canvas-element';
