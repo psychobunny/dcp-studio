@@ -11,6 +11,15 @@ function init() {
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
 
+	var hammer = new Hammer(document.body, {
+		'prevent_default': true,
+		'hold_timeout' : 2000
+	});
+	hammer.onhold = function() {
+		console.log('derp');
+	}
+
+
 	ruler = new Ruler("ruler");
 
 	ruler.render('#aaa', 'pixels', 100);
