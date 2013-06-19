@@ -85,7 +85,6 @@ var Selector;
 						elementBottom = elementTop + parseInt(elements[el].style.height);
 						if ((originX < elementLeft && endX > elementRight) && (originY < elementTop && endY > elementBottom)) {
 							activateElements([elements[el]], false);
-							console.log(1);
 						}
 					}				
 				}
