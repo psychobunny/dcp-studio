@@ -13,8 +13,8 @@ Shape.add = function() {
 	var id = 'shape_' + unnamed['Shape'].length;
 	shape.setAttribute('id', id);
 	document.getElementById('canvas').appendChild(shape);
-	shape.rawcss = "#" + id + "{width: 100px;height: 100px;border: 1px solid black;background: white;position: absolute;top: 50px;left: 50px;}";
-
+	shape.rawcss = getStyle('.shape');//"#" + id + "{width: 100px;height: 100px;border: 1px solid black;background: white;position: absolute;top: 50px;left: 50px;}";
+	
 	shape.onclick = function(ev) {
 		studio.updateEditor(shape.rawcss, this);
 		ev.stopPropagation();
@@ -27,11 +27,13 @@ Shape.add = function() {
 		ev.stopPropagation();
 	});
 
-	shape.className = 'canvas-element';
+	shape.elementClass = 'shape' + unnamed['Shape'].length; //+id part is temp. need to count unique classes.
+	shape.rawcss = shape.rawcss.replace('.shape', '.' + shape.elementClass);
+	shape.className = 'canvas-element shape ' + shape.elementClass; 
 	shape.style.left = '50px';
 	shape.style.top = '50px';
-	shape.style.width = '100px';
-	shape.style.height = '100px';
+	//shape.style.width = '100px';
+	//shape.style.height = '100px';
 
 	Draggable(shape);
 	Resizable(shape);

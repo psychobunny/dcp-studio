@@ -30,32 +30,23 @@ var toolsMenu;
 	}
 
 
-	studio.updateEditor = function(code, element) {
-		code = code.replace(/;}/g, '}');
-		code = code.replace(/}/g, '\r\n}');
-		code = code.replace(/;/g, ';\r\n\t');
-		code = code.replace(/{/g, '{\r\n\t');
 
+	studio.updateEditor = function(code, element) {
+		code = code.replace(/;/g, ';\r\n\t').replace(/{/g, '{\r\n\t').replace('\t }', '}');
 		editor.setValue(code);
 		editor.gotoLine(0);
 
-		editor.commands.addCommand({
-		    name: 'myCommand',
-		    bindKey: {win: 'Ctrl-Alt-S',  mac: 'Command-M'},
-		    exec: function(editor) {
-		        var el = element.css;
-			    if(el.styleSheet) el.styleSheet.cssText= editor.getValue();
-				else el.appendChild(document.createTextNode(editor.getValue()));
+		document.getElementById('editor').onkeyup = function() {
+			if (!element) return;
 
-				var rawcss = editor.getValue();
-				rawcss = rawcss.replace(/\r\n}/g, '}');
-				rawcss = rawcss.replace(/;\r\n\t/g, ';');
-				rawcss = rawcss.replace(/{\r\n\t/g, '{');
-				element.rawcss = rawcss;
+			element.css = editor.getValue();
+			setStyle(element.elementClass, element.css);
 
-				return false;
-		    }
-		});
+			element.rawcss = element.css;
+			//update the class as well
+
+			return false;
+		}
 	}
 
 })();
@@ -77,4 +68,24 @@ function removeClass(element, classToRemove) {
 
 function hasClass(element, classToFind) {	
 	return (element.className.indexOf(classToFind) !== -1);
+}
+
+function setStyle(selector, rule) {
+	var stylesheet = document.styleSheets[(document.styleSheets.length - 1)];
+
+	// todo: stylesheet.addRule for internet explorer - fn needs to seperate selector from rule
+	if(stylesheet.addRule) {
+		throw new Error('stylesheet.addRule for IE not implemented yet');
+	} else if(stylesheet.insertRule) {
+		stylesheet.insertRule(rule, stylesheet.cssRules.length);
+	}
+};
+
+function getStyle(selector) {
+    var classes = document.styleSheets[0].rules || document.styleSheets[0].cssRules;
+    for(var x = 0; x < classes.length; x++) {
+        if(classes[x].selectorText == selector) {
+			return classes[x].cssText ? classes[x].cssText : classes[x].style.cssText;
+        }
+    }
 }

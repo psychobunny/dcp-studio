@@ -97,3 +97,15 @@ body {
     height: 200px;
     z-index: 500;
 }
+
+
+
+.shape {
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+	background: white;
+	position: absolute;
+	top: 50px;
+	left: 50px;
+}

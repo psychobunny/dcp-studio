@@ -32,11 +32,12 @@ function init() {
 	canvas = document.getElementById('canvas');
 
 	container.addEventListener('mouseup', function() {
-		studio.updateEditor("body {padding: 0;margin: 0}");
+		studio.updateEditor("body { padding: 0; margin: 0; }");
 	});
 	container.addEventListener('mousedown', function() {
 		inactivateElements();
 	});
+
 
 }
 
@@ -55,7 +56,7 @@ function activateElements(elements, reset) {
 
 function inactivateElements() {
 	var element;
-	
+
 	while (element = activeElements.pop()) {
 		removeClass(element, 'active');
 	}
