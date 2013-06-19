@@ -1,15 +1,15 @@
 
-var DCP = {};
+var studio = {};
 var toolsMenu;
 
 (function() {
 	
 	var controls = {};
-	DCP.registerControl = function(name, description, icon, src, addMethod) {
+	studio.registerControl = function(name, description, icon, src, addMethod) {
 		controls[name] = {description: description, icon: icon, src: src, addMethod: addMethod};		
 	};
 
-	DCP.loadControls = function() {
+	studio.loadControls = function() {
 		toolsMenu = toolsMenu || document.getElementById('tools-menu');		
 		for (var ct in controls) {			
 			var li = document.createElement('li'),
@@ -30,7 +30,7 @@ var toolsMenu;
 	}
 
 
-	DCP.updateEditor = function(code, element) {
+	studio.updateEditor = function(code, element) {
 		code = code.replace(/;}/g, '}');
 		code = code.replace(/}/g, '\r\n}');
 		code = code.replace(/;/g, ';\r\n\t');

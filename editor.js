@@ -27,17 +27,14 @@ function init() {
 	Selector('container');
 
 	PanMe('canvas');
-	DCP.loadControls();
+	studio.loadControls();
 	container = document.getElementById('container');
 	canvas = document.getElementById('canvas');
 
-	container.addEventListener('click', function() {
-		
-	});	
 	container.addEventListener('mouseup', function() {
-		DCP.updateEditor("body {padding: 0;margin: 0}");
+		studio.updateEditor("body {padding: 0;margin: 0}");
 	});
-	container.addEventListener('dblclick', function() {
+	container.addEventListener('mousedown', function() {
 		inactivateElements();
 	});
 
@@ -46,15 +43,19 @@ function init() {
 function activateElements(elements, reset) {
 	if (reset === true) inactivateElements();
 
+	var element;
+
 	while (element = elements.pop()) {
 		if (!hasClass(element, 'active')) {
 			activeElements.push(element);
-			addClass(element, 'active');	
+			addClass(element, 'active');
 		}		
 	}
 }
 
 function inactivateElements() {
+	var element;
+	
 	while (element = activeElements.pop()) {
 		removeClass(element, 'active');
 	}

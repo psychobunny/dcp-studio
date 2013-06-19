@@ -1,5 +1,4 @@
 
-// requires Mousetrap.js
 function PanMe(element) {
 	var element = document.getElementById(element);
 	element.style.left = '50px';

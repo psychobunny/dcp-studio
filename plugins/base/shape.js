@@ -14,15 +14,17 @@ Shape.add = function() {
 	shape.setAttribute('id', id);
 	document.getElementById('canvas').appendChild(shape);
 	shape.rawcss = "#" + id + "{width: 100px;height: 100px;border: 1px solid black;background: white;position: absolute;top: 50px;left: 50px;}";
-	shape.onclick = function(ev) {		
-		DCP.updateEditor(shape.rawcss, this);
+
+	shape.onclick = function(ev) {
+		studio.updateEditor(shape.rawcss, this);
 		ev.stopPropagation();
 		return false;
 	}
+
 	shape.addEventListener('mousedown', function(ev) {
+		studio.updateEditor(shape.rawcss, this);
 		activateElements([this], (!ev.shiftKey && activeElements.length <= 1));
 		ev.stopPropagation();
-		console.log('first');
 	});
 
 	shape.className = 'canvas-element';
